@@ -44,4 +44,29 @@ class FileWriterTest {
         writer.close();
         assertEquals("HI HELLO",writer.getContent());
     }
+
+    @Test
+    void stupidRemover() {
+        writer.write("This is really really stupid!!!");
+        writer.stupidRemover();
+        writer.close();
+        assertEquals("This is really really s*****!!!",writer.getContent());
+    }
+
+    @Test
+    void duplicateRemover() {
+        writer.write("This is really really stupid!!!");
+        writer.duplicateRemover();
+        writer.close();
+        assertEquals("This is really stupid!!!",writer.getContent());
+    }
+
+    @Test
+    void stupidRemoverAndDuplicateRemover() {
+        writer.write("This is really really stupid!!!");
+        writer.duplicateRemover();
+        writer.stupidRemover();
+        writer.close();
+        assertEquals("This is really s*****!!!",writer.getContent());
+    }
 }

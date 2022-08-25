@@ -58,7 +58,8 @@ public class FileWriter extends Writer {
         String[] words = getContent().split(" ");
         String prevWord = "";
         for(String word : words) {
-            if(!prevWord.equals(word)) fileContent.append(word);
+            if(!prevWord.equals(word)) fileContent.append(word+" ");
+            prevWord = word;
         }
         replaceFileContent(fileContent.toString());
     }

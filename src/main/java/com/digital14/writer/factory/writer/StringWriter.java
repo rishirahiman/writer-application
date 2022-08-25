@@ -38,7 +38,8 @@ public class StringWriter extends Writer {
         String[] words = buffer.toString().split(" ");
         String prevWord = "";
         for(String word : words) {
-            if(!prevWord.equals(word)) newBuffer.append(word);
+            if(!prevWord.equals(word)) newBuffer.append(word+" ");
+            prevWord = word;
         }
         buffer = newBuffer;
     }
@@ -46,6 +47,6 @@ public class StringWriter extends Writer {
     //to retrieve the contents in the string buffer
     @Override
     public String getContent() {
-        return buffer.toString();
+        return buffer.toString().trim();
     }
 }
